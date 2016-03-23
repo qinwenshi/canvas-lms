@@ -41,20 +41,20 @@ unless Gem::Requirement.new(*bundler_requirements).satisfied_by?(Gem::Version.ne
 end
 
 # NOTE: this has to use 1.8.7 hash syntax to not raise a parser exception on 1.8.7
-if RUBY_VERSION >= "2.1" && RUBY_VERSION < "2.2"
-  ruby RUBY_VERSION, :engine => 'ruby', :engine_version => RUBY_VERSION
-elsif RUBY_VERSION >= "2.2" && RUBY_VERSION < "2.3"
-  ruby RUBY_VERSION, :engine => 'ruby', :engine_version => RUBY_VERSION
-elsif RUBY_VERSION >= "2.3" && RUBY_VERSION < "2.4"
-  if RUBY_VERSION == "2.3.0"
-    puts "Canvas CANNOT run under Ruby 2.3.0, due to a bug in Ruby. But since there isn't a 2.3.1 yet, we'll let you roll with this"
-  else
-    puts "Ruby 2.3 support is untested"
-  end
-  ruby RUBY_VERSION, :engine => 'ruby', :engine_version => RUBY_VERSION
-else
-  ruby '2.1.6', :engine => 'ruby', :engine_version => '2.1.6'
-end
+#if RUBY_VERSION >= "2.1" && RUBY_VERSION < "2.2"
+#  ruby RUBY_VERSION, :engine => 'ruby', :engine_version => RUBY_VERSION
+#elsif RUBY_VERSION >= "2.2" && RUBY_VERSION < "2.3"
+#  ruby RUBY_VERSION, :engine => 'ruby', :engine_version => RUBY_VERSION
+#elsif RUBY_VERSION >= "2.3" && RUBY_VERSION < "2.4"
+#  if RUBY_VERSION == "2.3.0"
+#    puts "Canvas CANNOT run under Ruby 2.3.0, due to a bug in Ruby. But since there isn't a 2.3.1 yet, we'll let you roll with this"
+#  else
+#    puts "Ruby 2.3 support is untested"
+#  end
+#  ruby RUBY_VERSION, :engine => 'ruby', :engine_version => RUBY_VERSION
+#else
+ruby '2.1.6', :engine => 'ruby', :engine_version => '2.1.6'
+#end
 
 # force a different lockfile for rails 4.2
 unless CANVAS_RAILS4_0
